@@ -83,9 +83,9 @@ So, in simple terms, object-oriented programming is like playing with different 
 
 <b>Evaluation:</b> 
 I think the answer is very good.
-But it does not list the “real benefit” of using OOPS, that class acts as a blue prints for various objects of the same type, say Person class. </n>
-Vibe check: Passed</n>
-Aspects Tested: Conceptual Understanding, Completeness</n>
+But it does not list the “real benefit” of using OOPS, that class acts as a blue prints for various objects of the same type, say Person class. <br/> 
+Vibe check: Passed<br/> 
+Aspects Tested: Conceptual Understanding, Completeness
 
 
 
