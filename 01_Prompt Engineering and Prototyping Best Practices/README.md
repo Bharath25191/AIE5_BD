@@ -105,8 +105,8 @@ Of course! Buckminsterfullerene, also known as C60, is a type of fullerene with 
 <b>Evaluation:</b> 
 It does a very good job overall.
 Misses out explaining about the ionized form and the absorption features of C60.
-Consider the statement in the summary “While it dissolves in hydrocarbon solvents to form a violet solution, its real-world applications are limited despite intense study.” These are 2 different facts, but the LLM assumed causality between the two.
-Vibe check: Passed
+Consider the statement in the summary “While it dissolves in hydrocarbon solvents to form a violet solution, its real-world applications are limited despite intense study.” These are 2 different facts, but the LLM assumed causality between the two.<br/> 
+Vibe check: Passed<br/> 
 Aspects Tested: Completeness, Hallucination
 
 <b>❓Q3 Write a short, imaginative story (100–150 words) about a robot finding friendship in an unexpected place.</b>
@@ -118,7 +118,7 @@ Through their friendship, Spark learned the true meaning of companionship and fo
 
 
 
-Folloe up Q
+Follow up Q
 Why is the garden unexpected place
 Chatbot
 That's a great question! Let's think about it together. Gardens are usually seen as peaceful and serene places, where one can relax and enjoy the beauty of nature. When something unexpected happens in a garden, it can catch us off guard because we associate gardens with tranquility and predictability. The contrast between the usual calmness of a garden and the unexpected event can make it stand out even more. It's like finding a surprise in a place where we least expect it, adding an element of excitement and intrigue to the experience. So, in a way, the unexpectedness of a garden can make it even more special and memorable.
@@ -130,8 +130,8 @@ From this response we can clearly see that the answer is not related to the prev
 It seems as if that the LLM’s temperature is ~ 0, as every time I ran this command,I got nearly the same response, with very few modifications, even the name of the squirrel seems to be the same across various runs. Such an application is not good in the real world, especially if the ask is to be imaginative. So, in my opinion the app is not up to the mark.
 The story's dystopian theme seems to fit as it talks about a robot finding friendship.
 There is no option to further customize the summary, indicating that the model is stateless, this is evident based on a follow up Q I asked the chatbot
-Also, it does not retain memory of the previous question, stateless.
-Vibe check: Not Passed
+Also, it does not retain memory of the previous question, stateless.<br/> 
+Vibe check: Not Passed<br/> 
 Aspects Tested: Creativity, Memory
 
 
@@ -147,8 +147,8 @@ I hope that helps! Let me know if you have any other questions.
 
 <b>Evaluation:</b> 
 The response is accurate and well articulated.
-I noticed that in the APP prompt template we asked LLM to reason through its steps, and its evident from the response it gave here.
-Vibe check: Passed
+I noticed that in the APP prompt template we asked LLM to reason through its steps, and its evident from the response it gave here.<br/> 
+Vibe check: Passed<br/> 
 Aspects Tested: Reasoning
 
 
@@ -164,7 +164,7 @@ Warm regards, Blaze
 Does a good job.
 Changes party to gathering -> Overdoing the formal tone ? 😀
  I trust that this introduction rings a bell and brings back memories of our encounter. -> Definitely over stresses things.
-Makes up this part “I believe this playful exchange will add an element of fun to our interactions”.
-Vibe check: Not Passed
+Makes up this part “I believe this playful exchange will add an element of fun to our interactions”.<br/> 
+Vibe check: Not Passed<br/> 
 Aspects Tested: Hallucination, Completeness, Deligence
 
