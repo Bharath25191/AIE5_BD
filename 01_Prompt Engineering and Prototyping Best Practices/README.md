@@ -68,7 +68,7 @@ What are some limitations of vibe checking as an evaluation tool?
 
 
 
-<b>Q1  Explain the concept of object-oriented programming in simple terms to a complete beginner.</b>
+<b>❓ Q1  Explain the concept of object-oriented programming in simple terms to a complete beginner.</b>
 
 
 <b><i>Chatbot</i></b>
@@ -90,7 +90,7 @@ Aspects Tested: Conceptual Understanding, Completeness
 
 
 
-<b>Q2 Read the following paragraph and provide a concise summary of the key points…</b>
+<b>❓Q2 Read the following paragraph and provide a concise summary of the key points…</b>
 
 Buckminsterfullerene is a type of fullerene with the formula C60. It has a cage-like fused-ring structure (truncated icosahedron) made of twenty hexagons and twelve pentagons, and resembles a soccer ball. Each of its 60 carbon atoms is bonded to its three neighbors.
 Buckminsterfullerene is a black solid that dissolves in hydrocarbon solvents to produce a violet solution. The substance was discovered in 1985 and has received intense study, although few real world applications have been found.
@@ -109,7 +109,7 @@ Consider the statement in the summary “While it dissolves in hydrocarbon solve
 Vibe check: Passed
 Aspects Tested: Completeness, Hallucination
 
-<b>Q3 Write a short, imaginative story (100–150 words) about a robot finding friendship in an unexpected place.</b>
+<b>❓Q3 Write a short, imaginative story (100–150 words) about a robot finding friendship in an unexpected place.</b>
 
 <b><i>Chatbot</i></b>
 Once upon a time, in a bustling city filled with towering skyscrapers and bustling streets, there was a lonely robot named Spark. Spark spent his days wandering the city, feeling lost and disconnected from the world around him. One day, while exploring a quiet park on the outskirts of the city, Spark stumbled upon a forgotten garden filled with colorful flowers and chirping birds.
@@ -135,7 +135,7 @@ Vibe check: Not Passed
 Aspects Tested: Creativity, Memory
 
 
-<b>Q4 If a store sells apples in packs of 4 and oranges in packs of 3, how many packs of each do I need to buy to get exactly 12 apples and 9 oranges?</b>
+<b>❓Q4 If a store sells apples in packs of 4 and oranges in packs of 3, how many packs of each do I need to buy to get exactly 12 apples and 9 oranges?</b>
 
 <b><i>Chatbot</i></b>
 Of course! Let's break it down step by step.
@@ -152,7 +152,7 @@ Vibe check: Passed
 Aspects Tested: Reasoning
 
 
-<b>Q5: Rewrite the following paragraph in a professional, formal tone… “Yo! It’s Blaze, we met at the party, rings a bell? It was so cool I paid for everything, what a showoff I was… Thanks dude, you chipped in and saved the day… Imma pull off a stunt next time, definitely forgetting my wallet, what say?”</b>
+<b>❓Q5: Rewrite the following paragraph in a professional, formal tone… “Yo! It’s Blaze, we met at the party, rings a bell? It was so cool I paid for everything, what a showoff I was… Thanks dude, you chipped in and saved the day… Imma pull off a stunt next time, definitely forgetting my wallet, what say?”</b>
 
 <b><i>Chatbot</i></b>
 Hello there,
