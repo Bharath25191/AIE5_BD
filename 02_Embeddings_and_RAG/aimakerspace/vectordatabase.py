@@ -12,6 +12,7 @@ def cosine_similarity(vector_a: np.array, vector_b: np.array) -> float:
     norm_b = np.linalg.norm(vector_b)
     return dot_product / (norm_a * norm_b)
 
+<<<<<<< HEAD
 # The choice of distance metric is dependent on the use case, 
 # The general rule of thumb is as follows:
 # Text Data: Use cosine similarity or dot product similarity
@@ -45,6 +46,8 @@ def jaccard_similarity(vector_a: np.array, vector_b: np.array) -> float:
     return intersection / union if union != 0 else 0.0
 
 
+=======
+>>>>>>> e05f2cba82ea459134a40932593e6488c63ed1e4
 
 class VectorDatabase:
     def __init__(self, embedding_model: EmbeddingModel = None):
@@ -60,7 +63,10 @@ class VectorDatabase:
         k: int,
         distance_measure: Callable = cosine_similarity,
     ) -> List[Tuple[str, float]]:
+<<<<<<< HEAD
 
+=======
+>>>>>>> e05f2cba82ea459134a40932593e6488c63ed1e4
         scores = [
             (key, distance_measure(query_vector, vector))
             for key, vector in self.vectors.items()
@@ -113,4 +119,7 @@ if __name__ == "__main__":
         "I think fruit is awesome!", k=k, return_as_text=True
     )
     print(f"Closest {k} text(s):", relevant_texts)
+<<<<<<< HEAD
 
+=======
+>>>>>>> e05f2cba82ea459134a40932593e6488c63ed1e4

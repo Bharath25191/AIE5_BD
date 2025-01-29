@@ -1,7 +1,10 @@
 import os
 from typing import List
+<<<<<<< HEAD
 import PyPDF2  # Add this import at the top
 
+=======
+>>>>>>> e05f2cba82ea459134a40932593e6488c63ed1e4
 
 
 class TextFileLoader:
@@ -37,6 +40,7 @@ class TextFileLoader:
         self.load()
         return self.documents
 
+<<<<<<< HEAD
 # Adding Class for PDF Loader, with the same functionality as the TextFileLoader for the assignment
 class PDFLoader:
     def __init__(self, path: str):
@@ -76,6 +80,8 @@ class PDFLoader:
         self.load()
         return self.documents
 
+=======
+>>>>>>> e05f2cba82ea459134a40932593e6488c63ed1e4
 
 class CharacterTextSplitter:
     def __init__(
@@ -116,4 +122,7 @@ if __name__ == "__main__":
     print(chunks[-2])
     print("--------")
     print(chunks[-1])
+<<<<<<< HEAD
 
+=======
+>>>>>>> e05f2cba82ea459134a40932593e6488c63ed1e4

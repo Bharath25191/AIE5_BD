@@ -63,6 +63,7 @@ In essence, it's a first look to ensure your system isn't experiencing catastrop
 ##### 🧑‍🤝‍🧑❓ Discussion Question #1:
 
 What are some limitations of vibe checking as an evaluation tool?
+<<<<<<< HEAD
 
 
 
@@ -168,3 +169,5 @@ Makes up this part “I believe this playful exchange will add an element of fun
 Vibe check: Not Passed<br/> 
 Aspects Tested: Hallucination, Completeness, Deligence
 
+=======
+>>>>>>> e05f2cba82ea459134a40932593e6488c63ed1e4
