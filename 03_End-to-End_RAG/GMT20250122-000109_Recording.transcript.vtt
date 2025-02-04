@@ -1,0 +1,1562 @@
+WEBVTT
+
+1
+00:00:01.820 --> 00:00:22.550
+Dr. Greg: Welcome everybody to session number 3. Today we talk end to end, use cases in for stacks. We're talking about exactly how we accomplish what we hope to get out of this by the end of the 10 weeks, and we bring together everything that we've learned so far from the very 1st
+
+2
+00:00:22.720 --> 00:00:29.960
+Dr. Greg: application challenge through week one. So this is a nice little capstone for those of you. That sort of have
+
+3
+00:00:30.610 --> 00:00:47.189
+Dr. Greg: a little bit more work to do on get related things on dev environment setup. You're gonna have an opportunity to do that for those of you that are a bit more advanced. We've got some fun challenges in store for you guys today as well and for everybody. We've got some interesting discussion
+
+4
+00:00:47.190 --> 00:01:07.490
+Dr. Greg: to continue with your breakout rooms and your journey groups around what it is you'll be building, shipping, and sharing for Demo Day. Speaking of building, shipping, and sharing, I've seen a lot of you guys crushing it in the discord way to go. Quick! Shout outs the Doc. The Oc. Here the Og.
+
+5
+00:01:08.400 --> 00:01:32.050
+Dr. Greg: Actually took it to the next level, played with temperature a bit and and kind of went deeper on the assignment that was shared in the build ship. Share channel. Love to see this. I also just want to do a quick shout out round the Horn. Here we saw a lot of folks sharing tomfoolery waleed. We saw Philip Kang, Philip Jones, Ben Gibbons. We saw
+
+6
+00:01:32.090 --> 00:01:43.750
+Dr. Greg: Kofi. We saw Kenny. What's up? Kenny Bitcoin Kenny? We saw Bd. 25, 9, 1 1. We saw Rajiv. We saw
+
+7
+00:01:44.260 --> 00:01:52.459
+Dr. Greg: Akshay and Sai tons of people sharing. I love this Curiti. We saw
+
+8
+00:01:52.720 --> 00:02:11.060
+Dr. Greg: my man Fook from Vietnam. Let's go, Mahinoor Anthony, all of you guys deserve these! Shout outs the the Doc and Frickster finally got you access, my man, and then Deept. Thank you for sharing the lessons not yet learned. I'd love to see this.
+
+9
+00:02:11.060 --> 00:02:24.099
+Dr. Greg: How do we build scalable production rag. How do we do it with like laying chain? How do we do with dynamic Api data? All stuff that's coming soon, and then shout out to the legend, Ashwin actually putting this thing out there in public
+
+10
+00:02:24.110 --> 00:02:41.529
+Dr. Greg: to his audience on Linkedin. Of course we amplified it from AI Makerspace. Don't be shy everybody. Go ahead, start building that personal brand towards whatever it is that you're aiming at. Next we're here to help you amplify and help you continue to try to achieve your goals. So
+
+11
+00:02:41.530 --> 00:02:58.659
+Dr. Greg: as we move forward. If there's way, too many build chip shares in the Channel, I'm going to select the ones that are most interesting and relevant and detailed, and the ones that really add value for us. But I thought everybody deserved a shout out, today, great job! Keep up the good work. I'd love to see it love to see it
+
+12
+00:02:59.520 --> 00:03:25.609
+Dr. Greg: also. We had the whiz, building, shipping, and sharing, and I believe he mentioned this this paper and this alpaca moment that we might be in related to reasoning deep seek. r. 1 looks like an interesting paper. Maybe we'll take a closer look. Later. I suppose we'll find out and we're we're building, shipping and sharing this week with Ragus and doing agent evaluation. Join us tomorrow on Youtube and join us every Monday in the lounge to see what else
+
+13
+00:03:25.610 --> 00:03:41.459
+Dr. Greg: everyone else in the community is building, shipping, and sharing. Of course we don't have time to talk about that in the course, because all you guys are out there crushing it too hard, thanks to everybody for joining Vincent's deep dive today. I heard it went well, and love to hear that
+
+14
+00:03:41.670 --> 00:03:45.740
+Dr. Greg: next week he's going to be covering more
+
+15
+00:03:45.890 --> 00:03:51.999
+Dr. Greg: on what we've talked about so far more about embeddings, like words, token, sentence.
+
+16
+00:03:52.240 --> 00:04:16.840
+Dr. Greg: sparse versus dense. How we can visualize these things, and this is a really interesting one. Semantic versus keyword search. This has come up in our consulting work at Am. Makerspace. Oftentimes, maybe they don't even have a keyword search in place, and they're trying to do AI. Maybe not such a good idea. Maybe you should crawl, walk, and then run. You want to talk about vector, stores. You want to talk about how to choose them. You want to talk about
+
+17
+00:04:16.850 --> 00:04:33.810
+Dr. Greg: more on exactly some of the underlying constructs of Langchain joining next week for his deep dive session. What time it's on the calendar. It's going to be at 9 Am. Pt. Every week on Tuesday. All right. So we are also hearing you guys from class to class
+
+18
+00:04:33.810 --> 00:04:53.079
+Dr. Greg: love to hear that you guys loved it, some of you. I wish I knew a little bit more about Llms, like some of my peers who have a little bit more experience. I'm sure there's more than just one person feeling this. If you're feeling that way totally all good, it's going to be a place where we all are coming together by the end of the 10 weeks
+
+19
+00:04:53.609 --> 00:05:03.730
+Dr. Greg: whiz! They want more code. They want slower code, and they want us to not rush on topics, classic, classic, classic. We're gonna we're gonna do our best to
+
+20
+00:05:04.270 --> 00:05:31.979
+Dr. Greg: continue to try to keep it at a speed of 7. I don't think we're going to get more code or significantly slower. But we are going to do our best to keep it at 7. Let us know if you think we're at 8 or 9 more breakout time, shout out to peer supporters, love that. Unfortunately, we're trying to give you as much as we can. We're going to see how we can continue to keep that number high, that 2025 min per breakout room session. And then we see the classic feedback coming in
+
+21
+00:05:32.300 --> 00:05:36.419
+Dr. Greg: now as well, can we release the pre-session work earlier?
+
+22
+00:05:37.130 --> 00:05:40.169
+Dr. Greg: Okay, so this is a great piece of feedback.
+
+23
+00:05:40.380 --> 00:05:56.279
+Dr. Greg: And I want to clarify something about pre-session work versus the work we do live during the session. If there's anything you must do in order to prepare to do the live stuff, we will send it to you.
+
+24
+00:05:56.840 --> 00:05:58.710
+Dr. Greg: Now, if
+
+25
+00:05:59.230 --> 00:06:07.999
+Dr. Greg: you're looking for something beyond the pre-session work, if you're looking for something that is exactly what we're going to do in class.
+
+26
+00:06:08.340 --> 00:06:09.600
+Dr. Greg: you're not alone.
+
+27
+00:06:09.740 --> 00:06:13.080
+Dr. Greg: I want the assignment a day before the class. I want the assignment
+
+28
+00:06:14.090 --> 00:06:23.419
+Dr. Greg: before the class, before the class before the class. This is something we hear a lot from students. I want to get the Prereqs installed. I want to do this. I want to do that.
+
+29
+00:06:23.500 --> 00:06:44.290
+Dr. Greg: Well, we're not going to give you the assignment before the class, because we've tried this in the past, and it's important to note that it really does disrupt and denigrate the breakout room experience, for the folks who are joining live, and didn't have time to look at it before we were live. So we do our best to give you all the pre work that you need. If
+
+30
+00:06:44.760 --> 00:06:52.160
+Dr. Greg: you need additional support with that pre work, then let us know. Let your peer supporter know.
+
+31
+00:06:52.480 --> 00:07:01.520
+Dr. Greg: Try to figure out exactly how you can best be ready. Work with your peer supporter and your journey group. On that. We are here to work with you, but we will not be releasing the assignment early.
+
+32
+00:07:01.840 --> 00:07:08.720
+Dr. Greg: and then, thanks for everybody shouting out cursor, and maybe fleshing out some of those instructions as we add new tools.
+
+33
+00:07:08.950 --> 00:07:21.150
+Dr. Greg: These are things that we're constantly working on updating. So if you have specific additions, feel free to open up a Pr and let us know about it, and we will. We will always be available to check it out and try to fix it directly.
+
+34
+00:07:21.840 --> 00:07:23.680
+Dr. Greg: No assignment before class.
+
+35
+00:07:23.790 --> 00:07:41.049
+Dr. Greg: the setup, any setup that you need is going to be in the pre-work. So just to be like super clear, Sarah, I wonder if you can throw the free work link into the chat for session 3, so everybody can check it out. We'll always have this on the session
+
+36
+00:07:41.180 --> 00:08:04.730
+Dr. Greg: sheets, and we'll be doing our best to get these session sheets out right after class for the next class. Each time it's session 3. We have to find a routine. This is just the way it goes. So I hope that that is useful to you. We are hearing you. If you have specific feedback on things we should be updating, let us know. But we cannot be releasing assignments early
+
+37
+00:08:05.090 --> 00:08:12.069
+Dr. Greg: as you get more comfortable with the processes of submitting assignments, it should get a lot easier. Some of the headache stuff, though
+
+38
+00:08:12.440 --> 00:08:14.720
+Dr. Greg: this was an interesting one.
+
+39
+00:08:14.830 --> 00:08:30.530
+Dr. Greg: Can I get sort of cleaner code instead of all this like comment, block stuff, this is something we'll take into advisement. It's not something that we've gotten feedback on before, but I do think that today you'll you'll appreciate the assignment. Whoever left this particular feedback all right.
+
+40
+00:08:31.440 --> 00:08:36.329
+Dr. Greg: and that's it on feedback. Thank you. Keep it coming.
+
+41
+00:08:38.659 --> 00:08:39.669
+Dr. Greg: This week.
+
+42
+00:08:39.880 --> 00:08:42.470
+Dr. Greg: We cover production grade rag.
+
+43
+00:08:43.049 --> 00:08:48.179
+Dr. Greg: We 1st look end to end today, and we talk a little bit about Demo Day.
+
+44
+00:08:48.890 --> 00:08:53.240
+Dr. Greg: and then on Thursday we cover lang chain.
+
+45
+00:08:53.420 --> 00:09:08.160
+Dr. Greg: Langchain is quite interesting now, because it's rapidly evolving, and the way we teach it, this cohort is actually going to be fundamentally different than the way we've taught it in cohorts previous. So look out for that on Thursday and look out for the pre work
+
+46
+00:09:08.270 --> 00:09:09.600
+Dr. Greg: coming after class.
+
+47
+00:09:10.050 --> 00:09:25.549
+Dr. Greg: Alright. So by the end of today's session, what we really want to do is we really want to understand the state of kind of production. Llm, application use cases. What's happening? And how can we
+
+48
+00:09:26.120 --> 00:09:29.589
+Dr. Greg: sort of simplify our lives around this?
+
+49
+00:09:30.030 --> 00:09:32.740
+Dr. Greg: Hopefully? AI makerspace is here to help?
+
+50
+00:09:33.160 --> 00:09:37.950
+Dr. Greg: How can we understand what to expect for Demo Day? Do some ideation.
+
+51
+00:09:38.100 --> 00:09:53.410
+Dr. Greg: throw down some ideas? Let us know if you're open to groups, or you want to work by yourself. And then we're actually going to bring together everything that we've built so far into sort of our 1st build challenge where we build this end to end rag application.
+
+52
+00:09:54.220 --> 00:09:55.160
+Dr. Greg: All right.
+
+53
+00:09:56.290 --> 00:10:00.659
+Dr. Greg: So let's talk about use cases.
+
+54
+00:10:02.000 --> 00:10:08.429
+Dr. Greg: AI is the new, we all know.
+
+55
+00:10:08.920 --> 00:10:21.570
+Dr. Greg: Andrew has been saying it since 2,017. What does that mean? Though, exactly. To be a general purpose technology. It means you're able to apply it to everything.
+
+56
+00:10:22.110 --> 00:10:26.229
+Dr. Greg: Well, you know, the 1st thing I like to sort of point out is
+
+57
+00:10:27.380 --> 00:10:33.440
+Dr. Greg: when we talk about electricity. What's the killer product that has ever been invented?
+
+58
+00:10:36.560 --> 00:10:41.150
+Dr. Greg: It's it's not exactly clear, which is tough.
+
+59
+00:10:42.810 --> 00:10:46.079
+Dr. Greg: If we think about refrigeration, it's a little bit easier.
+
+60
+00:10:46.420 --> 00:10:57.510
+Dr. Greg: The killer product is not the refrigerator. The killer product is Coca-cola. That's the biggest company and the most value that's ever been created based on this general purpose. Technology.
+
+61
+00:10:58.290 --> 00:11:06.280
+Dr. Greg: What will be the equivalent of Coca-cola to refrigeration when we think about AI. I don't know, and I don't think anybody
+
+62
+00:11:06.460 --> 00:11:07.510
+Dr. Greg: knows.
+
+63
+00:11:08.030 --> 00:11:12.860
+Dr. Greg: Maybe you guys will build it today, though
+
+64
+00:11:14.090 --> 00:11:19.190
+Dr. Greg: nobody has the right answer to what we should build. And why, in all cases
+
+65
+00:11:19.450 --> 00:11:24.409
+Dr. Greg: you can go around and you can ask, what are the top use cases for Llms today?
+
+66
+00:11:26.480 --> 00:11:36.350
+Dr. Greg: If you ask Gemini, it'll tell you all of these if you ask Chat Gpt.
+
+67
+00:11:36.610 --> 00:11:39.350
+Dr. Greg: Similarly it went on and on.
+
+68
+00:11:40.170 --> 00:11:42.940
+Dr. Greg: and if you ask Claude, it will
+
+69
+00:11:43.900 --> 00:11:50.980
+Dr. Greg: tell you the same stuff. So I asked, all 3 today. And I was like, Okay, okay, okay, that's fine.
+
+70
+00:11:51.110 --> 00:11:52.989
+Dr. Greg: What do you guys agree on?
+
+71
+00:11:53.730 --> 00:11:58.729
+Dr. Greg: Might as well ask AI about AI before we give our human perspective.
+
+72
+00:11:59.010 --> 00:12:00.830
+Dr. Greg: And it gave us
+
+73
+00:12:01.450 --> 00:12:15.520
+Dr. Greg: what follows, content creation. Okay, text generation summarization, creative writing. It gave me software development for sure coding, assistance code review and debugging technical writing. Okay.
+
+74
+00:12:15.730 --> 00:12:23.790
+Dr. Greg: business applications. Okay, customer support, sentiment analysis. Okay? All right.
+
+75
+00:12:24.030 --> 00:12:25.980
+Dr. Greg: Document processing.
+
+76
+00:12:26.590 --> 00:12:44.139
+Dr. Greg: fun, fun, stuff, education and learning, personalized tutoring. Oh, now we have more content. Creation, language, learning, research and analysis, summarization, analysis, literature, review. Okay, great
+
+77
+00:12:44.420 --> 00:12:47.789
+Dr. Greg: healthcare, more docs, more research.
+
+78
+00:12:49.230 --> 00:12:57.719
+Dr. Greg: language, named entity, recognition, sentiment, and it sounded a little bit nlpish kind of classic here.
+
+79
+00:12:58.720 --> 00:13:01.783
+Dr. Greg: search and retrieval. Okay,
+
+80
+00:13:04.830 --> 00:13:12.000
+Dr. Greg: I'm just not getting anything out of this, are you guys? Let's see, when they summarize all of these.
+
+81
+00:13:12.340 --> 00:13:20.549
+Dr. Greg: what what do we use? AI for? Turns out, we use it for automating repetitive tasks and extracting insights.
+
+82
+00:13:20.800 --> 00:13:27.000
+Dr. Greg: So automation and data science great.
+
+83
+00:13:27.570 --> 00:13:36.550
+Dr. Greg: So we should use AI to automate repetitive tasks. There's your answer. Thanks. AI. Now, this has been written about. This has been talked about. This has been
+
+84
+00:13:37.110 --> 00:13:54.179
+Dr. Greg: well studied, you know, if you're looking for sort of a process to go about this, you know, this is sort of one way that you could do it. I believe Andrew did describe this process in one of his Batch newsletters. But basically you can go to like a website that has all the job titles
+
+85
+00:13:54.570 --> 00:13:59.120
+Dr. Greg: and all the job titles can actually be broken down into job tasks.
+
+86
+00:13:59.280 --> 00:14:08.129
+Dr. Greg: and you can look at all the tasks and you can say for each of these tasks. Should I automate it, or should I augment it, or should I let the human do it?
+
+87
+00:14:09.886 --> 00:14:14.170
+Dr. Greg: This is something that you could go about doing
+
+88
+00:14:14.310 --> 00:14:21.049
+Dr. Greg: and trying to assess value. Vcs do this kind of thing you know. And and potentially, it's quite useful.
+
+89
+00:14:22.360 --> 00:14:34.109
+Dr. Greg: But you know. Maybe there's an easier way like we could just ask people like, we know some people
+
+90
+00:14:36.210 --> 00:14:45.189
+Dr. Greg: we are consulting partners with Langchain and Llama index, and when we asked both of them, this past year in 2024
+
+91
+00:14:45.953 --> 00:14:50.089
+Dr. Greg: the answer was exactly the same. That seemed pretty useful.
+
+92
+00:14:50.530 --> 00:14:54.080
+Dr. Greg: The answer was reports.
+
+93
+00:14:55.350 --> 00:14:56.190
+Dr. Greg: Huh?
+
+94
+00:14:56.630 --> 00:15:03.590
+Dr. Greg: The answer was searching and researching collecting data, pulling it in, summarizing it.
+
+95
+00:15:03.720 --> 00:15:09.090
+Dr. Greg: take it to the next level, and actually generating a report or filling out a form.
+
+96
+00:15:09.770 --> 00:15:11.820
+Dr. Greg: This was really the next level.
+
+97
+00:15:12.420 --> 00:15:15.049
+Dr. Greg: This is something that we've. We've done
+
+98
+00:15:15.200 --> 00:15:18.100
+Dr. Greg: a lot of stuff on Youtube with.
+
+99
+00:15:18.510 --> 00:15:20.299
+Dr. Greg: You'll notice this was kind of a
+
+100
+00:15:21.210 --> 00:15:32.633
+Dr. Greg: kind of a central theme in these 2 events that we did in late 2024. It really is kind of the killer. Use case today whether you like it or not.
+
+101
+00:15:33.190 --> 00:15:36.749
+Dr. Greg: searching and researching.
+
+102
+00:15:37.260 --> 00:15:41.919
+Dr. Greg: Okay, are you guys excited about that?
+
+103
+00:15:42.200 --> 00:15:44.990
+Dr. Greg: Okay, well, what do the consultants say?
+
+104
+00:15:46.250 --> 00:15:52.839
+Dr. Greg: Because if we go, and we ask Mckenzie or Kpmg. Or we ask Deloitte. I mean, they've got to have the answers right.
+
+105
+00:15:53.860 --> 00:16:04.800
+Dr. Greg: Well, it turns out that if we, if we look at the most recent report from Deloitte, Q. 4, 2024, the most advanced meaning, the most scaled
+
+106
+00:16:05.420 --> 00:16:09.240
+Dr. Greg: applications are in IT.
+
+107
+00:16:09.850 --> 00:16:19.160
+Dr. Greg: I always make the joke here in Ohio that they still call AI it because they call everything it.
+
+108
+00:16:19.690 --> 00:16:21.760
+Dr. Greg: I'm not sure IT.
+
+109
+00:16:22.960 --> 00:16:24.530
+Dr. Greg: Is meaningful.
+
+110
+00:16:25.010 --> 00:16:27.490
+Dr. Greg: Let's dig deeper into the data here.
+
+111
+00:16:27.990 --> 00:16:31.589
+Dr. Greg: perhaps by industry. It starts to make a little bit more sense.
+
+112
+00:16:31.810 --> 00:16:49.389
+Dr. Greg: For instance, if we look in the consumer industry, you see a use case that was quite common to be talked about in 2024 marketing. Write me Linkedin posts. Write me email, newsletter copy. Write me sales email so I can bang out a bunch of cold calls.
+
+113
+00:16:50.540 --> 00:16:52.690
+Dr. Greg: Okay, that makes sense consumer.
+
+114
+00:16:53.530 --> 00:17:00.129
+Dr. Greg: Now, if we look in financial services. Oh, look, finance is on the list that one makes sense, too.
+
+115
+00:17:01.890 --> 00:17:08.250
+Dr. Greg: And if we look in life, sciences, and healthcare, it's unsurprising to see R&D on the list.
+
+116
+00:17:08.800 --> 00:17:11.789
+Dr. Greg: It's pretty essential to their business, right
+
+117
+00:17:12.470 --> 00:17:17.260
+Dr. Greg: development being new drugs, new treatments, etc.
+
+118
+00:17:18.960 --> 00:17:24.709
+Dr. Greg: So what's the what's the pattern here? Well, if we consider the quote
+
+119
+00:17:25.079 --> 00:17:29.699
+Dr. Greg: taken from the Associate director of AI at a leading Healthcare Products Company
+
+120
+00:17:30.640 --> 00:17:39.279
+Dr. Greg: to Deloitte. In this report value creation is measured operationally by the acceleration of development pipelines.
+
+121
+00:17:39.430 --> 00:17:45.369
+Dr. Greg: Our focus is on development speed rather than outperforming human capabilities.
+
+122
+00:17:45.970 --> 00:17:47.200
+Dr. Greg: I like that.
+
+123
+00:17:48.230 --> 00:17:53.769
+Dr. Greg: you know. I've often talked to a lot of people that have an idea, and their idea is like.
+
+124
+00:17:54.130 --> 00:17:57.500
+Dr. Greg: I want to do this thing. And I think only AI can do it.
+
+125
+00:17:58.580 --> 00:18:04.030
+Dr. Greg: And it's like, Yeah, maybe. But also maybe not.
+
+126
+00:18:04.520 --> 00:18:18.440
+Dr. Greg: And it harkens back to classic AI classic, Ml. And deep learning, where, if you're not sure, you can actually do the thing, it really does add a significant amount of uncertainty and risk.
+
+127
+00:18:18.660 --> 00:18:23.060
+Dr. Greg: which is not something that the industry today has quite the appetite for.
+
+128
+00:18:23.500 --> 00:18:33.150
+Dr. Greg: Rather, if you focus on just doing what humans can already do, but faster.
+
+129
+00:18:34.060 --> 00:18:37.309
+Dr. Greg: even if you need to take their job and
+
+130
+00:18:37.700 --> 00:18:40.759
+Dr. Greg: break it down into a series of tasks.
+
+131
+00:18:41.210 --> 00:18:48.189
+Dr. Greg: For instance, let's say you work at a market research firm.
+
+132
+00:18:48.500 --> 00:19:05.290
+Dr. Greg: And you need to go. And you need to search and research the same numbers because they change every day from the stock market. And all of this stuff you're pulling in and you're analyzing it. And you're synthesizing it. And you're writing a report on it on sort of a weekly basis.
+
+133
+00:19:06.090 --> 00:19:08.809
+Dr. Greg: That's a really great use case for AI.
+
+134
+00:19:08.990 --> 00:19:11.670
+Dr. Greg: Does that analyst really want to do that? Anyways.
+
+135
+00:19:13.150 --> 00:19:17.360
+Dr. Greg: if we can find the intersection of what people really don't want to do.
+
+136
+00:19:17.890 --> 00:19:20.599
+Dr. Greg: and the stuff people are already good at.
+
+137
+00:19:20.980 --> 00:19:26.840
+Dr. Greg: and the stuff that moves the needle for the organization that's a win-win.
+
+138
+00:19:27.990 --> 00:19:31.089
+Dr. Greg: This idea of time is something we've already talked about. Right?
+
+139
+00:19:31.860 --> 00:19:39.010
+Dr. Greg: We talked about Nitin, and when he built sales. Buddy, this is the homepage about creating time for your enterprise. Sales Rep.
+
+140
+00:19:39.320 --> 00:19:45.439
+Dr. Greg: We talked about publicus, and it's about not wasting time on Rfps.
+
+141
+00:19:47.610 --> 00:19:55.060
+Dr. Greg: It seems that AI creates value when it frees up humans time.
+
+142
+00:19:56.200 --> 00:20:00.780
+Dr. Greg: Now, how does it tee up humans. Time.
+
+143
+00:20:01.290 --> 00:20:06.010
+Dr. Greg: One of the questions that we talked a lot about last year
+
+144
+00:20:06.550 --> 00:20:08.910
+Dr. Greg: is, we got this idea like.
+
+145
+00:20:09.730 --> 00:20:14.829
+Dr. Greg: are these apps? Are these Lm applications that were built. Are they just chat bots.
+
+146
+00:20:15.700 --> 00:20:18.279
+Dr. Greg: And as we'll talk about today like.
+
+147
+00:20:19.750 --> 00:20:29.070
+Dr. Greg: well sometimes, but like chat bots are just interfaces, they're just a way to interface with
+
+148
+00:20:29.550 --> 00:20:38.599
+Dr. Greg: an AI system, and the AI system doesn't just have to be at the level of the individual who you're interfacing with. It could be at the level of the enterprise.
+
+149
+00:20:39.580 --> 00:20:44.710
+Dr. Greg: And this is where we're headed towards these enterprise workflows.
+
+150
+00:20:45.040 --> 00:21:09.989
+Dr. Greg: We're headed towards a future where? And you can see this early right. Now, this is from today. This is from one of the Vcs. That was at the Llama Index Ragathon. That was a judge when we were running this Packathon with llama Index in September, and he put out, you know this sort of enterprise, layer. We can look at Agent AI by Hubspot or salesforce agent force. This is the kind of thing
+
+151
+00:21:10.140 --> 00:21:12.530
+Dr. Greg: that enterprise is thinking about.
+
+152
+00:21:13.460 --> 00:21:14.960
+Dr. Greg: And you know
+
+153
+00:21:15.180 --> 00:21:41.689
+Dr. Greg: I wrote about this in the session sheet, and you know my bad. I released this only today. But I'd like to get the most updated information. If you think about what the Enterprise leaders, people like Mark Benioff and Ceos at his level are thinking about. They're thinking about this future of enterprise workflows. And I love this quote from the CEO of Uipath, one of the oldest
+
+154
+00:21:41.850 --> 00:21:48.670
+Dr. Greg: AI companies. They're a robotic process Automation company that's entering their second
+
+155
+00:21:49.090 --> 00:21:57.160
+Dr. Greg: sort of breadth of company life with AI and I, like Daniel Dines, their CEO,
+
+156
+00:21:57.300 --> 00:22:07.529
+Dr. Greg: where he imagines this future, where everybody's in front of the computer, they're just waiting for emails to come into their inbox. It's an email. It's not a chat interface.
+
+157
+00:22:08.000 --> 00:22:32.239
+Dr. Greg: And the email says, Hey, please validate this, please validate this. I need this information. I need this. Let's go. Let's go. Let's go. The Enterprise orchestration layer. We'll talk about orchestration with Langchain on Thursday. The orchestration layer is thinking end to end as many people, not just one as many interfaces, not just one.
+
+158
+00:22:32.980 --> 00:22:33.830
+Dr. Greg: Okay.
+
+159
+00:22:33.950 --> 00:22:35.910
+Dr. Greg: So if you want to make money, that's dope.
+
+160
+00:22:36.480 --> 00:22:38.359
+Dr. Greg: Maybe you should think at the Enterprise level.
+
+161
+00:22:38.720 --> 00:22:45.090
+Dr. Greg: But just because it makes someone money doesn't mean that you'll care at all.
+
+162
+00:22:46.340 --> 00:22:49.650
+Dr. Greg: Which is important because we're here to talk about you.
+
+163
+00:22:50.400 --> 00:22:51.910
+Dr. Greg: We're here to talk about Demo Day.
+
+164
+00:22:53.580 --> 00:22:59.160
+Dr. Greg: We're gonna talk about. What's a problem that you're genuinely interested in solving.
+
+165
+00:22:59.400 --> 00:23:01.659
+Dr. Greg: that you actually want to share
+
+166
+00:23:01.850 --> 00:23:06.700
+Dr. Greg: with either a company or some community that you're involved in.
+
+167
+00:23:06.900 --> 00:23:13.199
+Dr. Greg: And we'll talk about how to build these solutions, and we'll talk about the AI engineering and and
+
+168
+00:23:13.540 --> 00:23:14.630
+Dr. Greg: all of that.
+
+169
+00:23:14.820 --> 00:23:16.180
+Dr. Greg: That's the whole course.
+
+170
+00:23:16.430 --> 00:23:20.910
+Dr. Greg: But it's important to align our aim, 2
+
+171
+00:23:21.050 --> 00:23:24.929
+Dr. Greg: building, shipping, and sharing prototypes. So we're going to do every week.
+
+172
+00:23:25.710 --> 00:23:33.589
+Dr. Greg: Your Demo Day Project is a unique example to ask yourself, like like, do I care?
+
+173
+00:23:35.390 --> 00:23:39.740
+Dr. Greg: And if you don't care, your project will suck.
+
+174
+00:23:40.340 --> 00:23:43.749
+Dr. Greg: We try to make the projects that we give you guys in class fun
+
+175
+00:23:43.900 --> 00:23:45.910
+Dr. Greg: because we want to care about them.
+
+176
+00:23:46.640 --> 00:23:48.400
+Dr. Greg: It's not a secret.
+
+177
+00:23:49.300 --> 00:23:56.840
+Dr. Greg: Do you care about the audience? Do you care about the community? If you do dope?
+
+178
+00:23:57.190 --> 00:23:58.480
+Dr. Greg: If you don't.
+
+179
+00:23:59.610 --> 00:24:00.890
+Dr. Greg: You're gonna struggle.
+
+180
+00:24:02.630 --> 00:24:13.259
+Dr. Greg: Remember, we have this Gpt that we built out. It basically does what I used to do with students. Where do you work? We could build something for that. What do you like to do outside of work?
+
+181
+00:24:13.660 --> 00:24:17.020
+Dr. Greg: We we could definitely build something for that.
+
+182
+00:24:20.490 --> 00:24:22.810
+Dr. Greg: So all of you are going to come up with an idea.
+
+183
+00:24:23.610 --> 00:24:26.749
+Dr. Greg: Some of you are gonna have a team.
+
+184
+00:24:27.810 --> 00:24:31.940
+Dr. Greg: And then we're gonna have
+
+185
+00:24:33.100 --> 00:24:44.250
+Dr. Greg: demo day. And it's gonna be great. Okay, it's gonna be live. We're gonna get a lot of people in the room. It's gonna be sick. I just want to take a couple of minutes, though I want to talk. I want to bring Sriracha up to the stage, because
+
+186
+00:24:44.360 --> 00:24:54.439
+Dr. Greg: when we do a production like Demo Day, I want you guys to know this. Now, it's actually not just getting an app done. It's like a whole production.
+
+187
+00:24:54.924 --> 00:25:12.649
+Dr. Greg: Sarah, what goes into a production like Demo Day that presenters should know about. And maybe you can think about all of the work we do on Youtube live. You can think about your time back at deep learning when you were running the very, very large events for them.
+
+188
+00:25:12.810 --> 00:25:19.299
+Dr. Greg: All presenters have this sort of production layer they have to deal with. Can you tell us about that?
+
+189
+00:25:19.300 --> 00:25:34.859
+Seraacha: Yeah, sure thing, Greg, thank you. Well, hey, everybody. Yes, Greg is talking about production, and I will tell you I love this aspect of events and putting on live streams for folks, especially Demo Day. It's my favorite day of the cohort so very excited.
+
+190
+00:25:34.860 --> 00:25:50.750
+Seraacha: So when we think about production, you're gonna think about all the minute details from we're gonna from organizing a script on how you actually present your demo live to an actual dress rehearsal which you'll do with all of us
+
+191
+00:25:50.750 --> 00:26:15.409
+Seraacha: down to the minutes of how much time you have to actually present and answer questions from judges. So there's all these little pieces that go into it, and as far as what we do on Youtube live, Dr. Greg and whiz! They get a script every single week. We do a rehearsal, I review their content, their slides. I get a link for the notebook that we share. So there's all these little pieces that we'll be
+
+192
+00:26:15.410 --> 00:26:26.419
+Seraacha: walking with you through this process. The closer we get to Demo Day, and we're gonna make sure that like I said, you're gonna have a rehearsal. You'll have time to prepare, and you'll also be able to get feedback
+
+193
+00:26:26.420 --> 00:26:33.599
+Seraacha: from your peers and your peer supporter on the project that you'll be presenting. Did you want me to go into any more details, Greg?
+
+194
+00:26:33.910 --> 00:26:50.480
+Dr. Greg: No, that's pretty good. I mean, if you have questions, feel free to ask them now, or ask them to your peer supporter. But you know it's it's it's little things that you guys don't think about. Right, Sarah. I mean, it's like, it's like, Can you see my screen? Oh, oh, my God! You know it's like can you hear me?
+
+195
+00:26:51.530 --> 00:27:06.789
+Dr. Greg: You know, and it's like, it's like all these little things that we don't really have time to think about when we're focused in on the technical details and on the jargon and on the thing we built. And on the way we present it all that matters.
+
+196
+00:27:07.150 --> 00:27:19.919
+Dr. Greg: But it's important to make sure that you've got your stuff. If you've got team members, they've got their stuff, and it really is a genuine production here at Am Makerspace. We'll go ahead and take a question from you. Rajesh, what's what's up
+
+197
+00:27:22.441 --> 00:27:30.230
+Dr. Greg: you're you're on mute classically still, muted Rajesh.
+
+198
+00:27:30.230 --> 00:27:45.440
+Rajesh Iyer: Oh, sorry. Yeah. 2 questions, actually, one is, when do we get to start our project? Is there a specific date by which we should get started. And you know, start preparing for it. I mean, you know.
+
+199
+00:27:45.919 --> 00:27:48.299
+Rajesh Iyer: that is one. And then second is,
+
+200
+00:27:49.030 --> 00:27:57.330
+Rajesh Iyer: how do we choose our groups? I mean, should we work as an individual, or should we, you know, make start making our groups right now? Or.
+
+201
+00:27:58.020 --> 00:28:09.920
+Dr. Greg: Perfect questions. Perfect segue, Rajesh. So what we're gonna do is we're gonna actually hop into breakout rooms now. And and we're gonna try to set you up to be able to quickly fill out this form.
+
+202
+00:28:10.070 --> 00:28:16.080
+Dr. Greg: And the form goes like this. Do you have a project idea? If so, what's your idea. Do you have a team?
+
+203
+00:28:16.160 --> 00:28:41.769
+Dr. Greg: If yes, let us know. If not, are you open to working on a team? And so what we're gonna do is we're gonna try to with this cohort. Give you guys additional support with teaming, maybe do a little teaming mixer within the next few weeks, and then for the Midterm project. We want you guys to basically prototype a 1st cut at your Demo Day project.
+
+204
+00:28:41.770 --> 00:29:07.469
+Dr. Greg: and we'll sort of walk you through all those details and do it with the team you plan on doing it with. So we're trying to set this up so where you guys can sort of build it, and then work on it and keep refining it over those 5 weeks. Refine the product, refine the production value, and get to know your team better and better, and then we'll we'll sort of do our best to fill up the room full of cool people that could, you know, give you money, give you jobs, give you cool things in the future.
+
+205
+00:29:07.900 --> 00:29:09.649
+Dr. Greg: So with that.
+
+206
+00:29:09.830 --> 00:29:15.170
+Dr. Greg: what I'd like to do is I'd like to actually let you guys spend some time together with each other. And
+
+207
+00:29:15.640 --> 00:29:23.430
+Dr. Greg: if you don't have an idea, that's okay. Okay, it's not. We're not forcing you into this right now. What we want you to do is we want you to just talk about
+
+208
+00:29:23.830 --> 00:29:28.829
+Dr. Greg: what you're building now. You you may have started to do this in session one.
+
+209
+00:29:29.030 --> 00:29:34.069
+Dr. Greg: and I'll let your peer supporters and your journey groups continue the discussion here.
+
+210
+00:29:34.430 --> 00:29:42.530
+Dr. Greg: But we're more interested in what you're actually building now, and and how you sort of plan on leveraging the tools in the course
+
+211
+00:29:43.200 --> 00:29:44.810
+Dr. Greg: to take it to the next level.
+
+212
+00:29:45.150 --> 00:29:52.309
+Dr. Greg: Or maybe you're not building anything yet, but you want to build something for your organization or for your future organization.
+
+213
+00:29:53.070 --> 00:29:54.580
+Dr. Greg: What is that thing?
+
+214
+00:29:55.010 --> 00:29:56.539
+Dr. Greg: Can you describe it?
+
+215
+00:29:56.700 --> 00:30:16.780
+Dr. Greg: Maybe your journey group can help. Everybody's going to get about 2 min to talk about this, and your peer supporters are going to lead with skin in the game. They're going to tell you what they're building. They're going to tell you how they're trying to take it to the next level. Want to get in the habit of building, shipping, and sharing, telling people about it, and of doing it with a community.
+
+216
+00:30:17.050 --> 00:30:19.000
+Dr. Greg: So we're going to spend some time together.
+
+217
+00:30:19.330 --> 00:30:21.910
+Dr. Greg: We hope this is useful, and
+
+218
+00:30:22.410 --> 00:30:27.389
+Dr. Greg: we will also drop the link in the chat right now
+
+219
+00:30:27.570 --> 00:30:32.370
+Dr. Greg: to the preferences for Demo Day. If you'd like to
+
+220
+00:30:32.740 --> 00:30:43.839
+Dr. Greg: go ahead and fill this out, live while you're in that room. That would be super helpful. This won't be a graded assignment. We just want to know how we can help you out.
+
+221
+00:30:44.020 --> 00:30:59.600
+Dr. Greg: So we're going to go ahead and open them up for 25 min. When we come back, we're going to spend the second half of class totally focused on infrastructure, doing our build challenge and really digging into the details of what end to end means from an AI engineering perspective.
+
+222
+00:31:00.460 --> 00:31:11.780
+Dr. Greg: I need access access denied this new Google form setup. We're gonna get it figured out. Give me just 1 min after you get into your room. You will have access, I promise. All right, let's open them up.
+
+223
+00:31:16.740 --> 00:31:20.109
+Dr. Greg: Before we go to the break. I'd like to invite everybody to just
+
+224
+00:31:20.210 --> 00:31:31.950
+Dr. Greg: smash the chat with any great ideas, so that you can make it easy for folks in the cohort to follow up with you. If they're super interested in your idea.
+
+225
+00:31:32.230 --> 00:31:36.539
+Dr. Greg: And hopefully, we can create some collisions, some connections.
+
+226
+00:31:37.200 --> 00:31:55.599
+Dr. Greg: But with that we're going to take a quick 5 min, break it out, shake it out if you want to stick around and hang out. We're around, but we're going to do a quick 5. We'll be back at 8 0. 3 pm. Eastern 5 0. 3 Pm. Pacific to dig into the second half of class infrastructure. Let's go.
+
+227
+00:32:01.330 --> 00:32:29.939
+Dr. Greg: and we are back from break. I love the ideas coming in. We will share a list of ideas with everybody in the discord, also in emails, and make sure that you guys sort of are able to have transparency through what some of the ideas are in the cohort. If you guys want to definitely work alone. We won't necessarily share your stuff. So also for those of you that you know know exactly what you want to do, and and kind of how to do it. Just quick reminder. Demo day is required for certification. So hopefully, you know, we can get you all aligned towards
+
+228
+00:32:29.940 --> 00:32:36.230
+Dr. Greg: getting certified towards nailing the demo day and towards really achieving. You know your goals in 2025,
+
+229
+00:32:36.380 --> 00:32:57.840
+Dr. Greg: all right. So part of that. And a big part of that we're not going to spend this much time on sort of ideation in general. We're not going to spend this much time on product management in general. This is an AI engineering course. However, the best AI engineers, as we mentioned, they are the ones thinking about what we should build and why. And they're just cranking out prototypes. So this is the the sort of flavor we want to give you guys.
+
+230
+00:32:57.920 --> 00:33:13.019
+Dr. Greg: Now let's talk about the details. This is where AI engineering comes in when it's time to build solutions. And AI engineering, of course, is the industry relevant set of skills that data, science and engineering teams need
+
+231
+00:33:13.370 --> 00:33:19.629
+Dr. Greg: to successfully build, deploy, operate, and improve Lm applications in broad.
+
+232
+00:33:20.610 --> 00:33:24.930
+Dr. Greg: We are using the Llm. App stack to sort of learn our way into this.
+
+233
+00:33:25.170 --> 00:33:31.829
+Dr. Greg: And this is the stack that's based on the design pattern of in context learning.
+
+234
+00:33:31.990 --> 00:33:34.320
+Dr. Greg: We're going to use this stack a lot.
+
+235
+00:33:35.570 --> 00:33:41.649
+Dr. Greg: I encourage all of you to be able to sort of draw out
+
+236
+00:33:41.910 --> 00:33:53.840
+Dr. Greg: some kind of stack on a whiteboard for your future endeavors. It doesn't have to be this stack with these 3 stages, but it can be, and it's a great starting point to use
+
+237
+00:33:55.330 --> 00:34:04.929
+Dr. Greg: in this one. From a 16 Z. We have embedding, we have retrieval, and we have inference, so we can look at the whole stack as we will. As we continue our builds
+
+238
+00:34:05.470 --> 00:34:16.750
+Dr. Greg: orchestration in the middle, we sort of have the ui over here on the left we have the back end with, you know, caching and logging and validation, this sort of
+
+239
+00:34:16.750 --> 00:34:30.210
+Dr. Greg: guardrails making sure that the stuff that comes out of the Llm is the stuff that we can serve to our users. And then, of course, the contextual data piece on top putting context in through data that we chop up into
+
+240
+00:34:30.210 --> 00:34:47.059
+Dr. Greg: vectors that we then put into a database, we may plug into external Apis as well. So this piece is where really the rag comes in. We start to get that agentic behavior in the Apis, and we want to make sure that we have that user interface. This chat bot interface.
+
+241
+00:34:47.400 --> 00:35:00.379
+Dr. Greg: And then this kind of ability to actually host all the stuff we need on the back end. And as we'll see one of the things that's so interesting that you guys that are maybe going super advanced today
+
+242
+00:35:00.740 --> 00:35:03.000
+Dr. Greg: might notice is that
+
+243
+00:35:03.360 --> 00:35:23.260
+Dr. Greg: we can actually host entire applications. This is what we would do with something like lang graph server. Part of now lang graph platform, formerly lang serve. And the back end of that is actually the back end that we have is a challenge for you guys to build today. But for the vast majority of you, what we're gonna do is we're gonna take
+
+244
+00:35:23.450 --> 00:35:25.310
+Dr. Greg: this challenge.
+
+245
+00:35:26.220 --> 00:35:31.180
+Dr. Greg: Then we're going to take the pythonic rag work that we did.
+
+246
+00:35:31.720 --> 00:35:33.870
+Dr. Greg: And we're gonna put them together.
+
+247
+00:35:34.640 --> 00:35:35.540
+Dr. Greg: That's it.
+
+248
+00:35:37.450 --> 00:35:40.729
+Dr. Greg: We're going to put a chain, let front end on a rag out.
+
+249
+00:35:41.510 --> 00:35:43.259
+Dr. Greg: and it's important to understand, like
+
+250
+00:35:44.550 --> 00:35:50.599
+Dr. Greg: what is chain lit and what does it do? Exactly. Well, you know it kind of is
+
+251
+00:35:51.790 --> 00:35:56.259
+Dr. Greg: bit like streamlit python programming. Ui.
+
+252
+00:35:56.380 --> 00:36:11.240
+Dr. Greg: it's a front end. It. It allows your users to sort of mess with the prompt. It allows them to really play with things. It allows you to actually do some AI engineering through prompting directly into the Ui
+
+253
+00:36:11.670 --> 00:36:21.900
+Dr. Greg: and chain. Let's pretty cool. You know, we we've gotten to know the guys that built chainlit. They're actually building another platform. That's more of a competitor with Lang Smith, now called literal AI.
+
+254
+00:36:22.240 --> 00:36:28.640
+Dr. Greg: But you know it was pretty cool to hear from Dan that they had someone deploy an app that a million users per week
+
+255
+00:36:29.670 --> 00:36:30.750
+Dr. Greg: we're using.
+
+256
+00:36:31.450 --> 00:36:38.339
+Dr. Greg: So I mean, you can use this just probably best if you're like a startup outfit.
+
+257
+00:36:38.640 --> 00:36:45.349
+Dr. Greg: And you guys don't have specific things that you must do for enterprise. It's very simple python syntax, as you've seen.
+
+258
+00:36:46.030 --> 00:36:47.110
+Dr. Greg: And
+
+259
+00:36:47.870 --> 00:36:55.200
+Dr. Greg: importantly, when you set up a Ui, you have to think, what does my user put in? What do I give them out?
+
+260
+00:36:55.300 --> 00:37:07.309
+Dr. Greg: This input. Output is quite important. When we talk about something like prompting, we say, specify the input output. We talk about fine tuning. We can fine tune exactly this, input that output.
+
+261
+00:37:08.310 --> 00:37:14.000
+Dr. Greg: And it makes you think about what you want in your product. It makes you think about
+
+262
+00:37:14.350 --> 00:37:16.750
+Dr. Greg: all the stuff you want to provide your user.
+
+263
+00:37:16.940 --> 00:37:32.690
+Dr. Greg: You wanted to have fast response times. You want it to be accurate. You want it to be low cost. You want it to be scalable. There are some things that are baked into chain lit that maybe you didn't look too closely at during the challenge that we encourage you guys to look at today. So it's it's Async out of the box.
+
+264
+00:37:33.100 --> 00:37:44.170
+Dr. Greg: And importantly, this just means that we are leveraging this idea that
+
+265
+00:37:44.580 --> 00:37:50.759
+Dr. Greg: we're not getting stopped up because of this sequential operation
+
+266
+00:37:51.410 --> 00:38:03.719
+Dr. Greg: thing that happens in synchronous environments like when we're dealing with sending a bunch of responses, we don't get to decide how long it takes to get a response back.
+
+267
+00:38:04.650 --> 00:38:17.999
+Dr. Greg: So we send a request. We get a response. How long does it take to get that response? We don't get to decide. So it's better just like when you're calling a customer service line to ask for a call back
+
+268
+00:38:18.890 --> 00:38:25.610
+Dr. Greg: and the callback is executed. Once the response is ready, you get the call back.
+
+269
+00:38:25.750 --> 00:38:31.690
+Dr. Greg: And and so this idea of of not being synchronous, but being asynchronous is something you're going to see everywhere
+
+270
+00:38:32.620 --> 00:38:36.129
+Dr. Greg: all the apps you build. It's out of the box everywhere.
+
+271
+00:38:36.530 --> 00:38:38.190
+Dr. Greg: It's not something special.
+
+272
+00:38:38.490 --> 00:38:40.179
+Dr. Greg: You're going to see it in the code.
+
+273
+00:38:40.680 --> 00:38:42.729
+Dr. Greg: and you should kind of know what it does.
+
+274
+00:38:44.980 --> 00:38:51.159
+Dr. Greg: There's other things that chain let does out of the box that other applications are going to do out of the box, too. Things like user sessions.
+
+275
+00:38:52.990 --> 00:38:56.539
+Dr. Greg: Are you serving more than one user?
+
+276
+00:38:56.800 --> 00:39:04.389
+Dr. Greg: If so, like, you need to communicate with each of them separately. You can't be like confusing conversations.
+
+277
+00:39:05.720 --> 00:39:08.049
+Dr. Greg: And those user sessions.
+
+278
+00:39:08.160 --> 00:39:12.049
+Dr. Greg: They're pretty easy to start on. Chat. Start.
+
+279
+00:39:13.370 --> 00:39:19.400
+Dr. Greg: The other thing you'll notice, especially for those of you kind of less familiar with python is that you'll notice
+
+280
+00:39:20.440 --> 00:39:23.169
+Dr. Greg: some specific python syntax.
+
+281
+00:39:24.010 --> 00:39:30.529
+Dr. Greg: You'll notice methods which are functions associated with classes or objects.
+
+282
+00:39:31.900 --> 00:39:37.290
+Dr. Greg: And you'll notice decorators sort of the function within a function.
+
+283
+00:39:39.620 --> 00:39:42.380
+Dr. Greg: These decorators play an important role.
+
+284
+00:39:43.600 --> 00:39:45.629
+Dr. Greg: We can do lots of stuff with them.
+
+285
+00:39:45.780 --> 00:39:47.200
+Dr. Greg: You'll see them.
+
+286
+00:39:47.640 --> 00:39:50.939
+Dr. Greg: This little at sign indicates the decorator.
+
+287
+00:39:52.070 --> 00:40:00.689
+Dr. Greg: and there are decorators that you can use that go pretty far beyond, on message and on chat. Start
+
+288
+00:40:01.060 --> 00:40:04.089
+Dr. Greg: wiz will talk about some of this in his demo.
+
+289
+00:40:04.770 --> 00:40:11.269
+Dr. Greg: We're going to use models that we are probably pretty familiar with already for a Mini text 3 embedding small.
+
+290
+00:40:11.400 --> 00:40:15.749
+Dr. Greg: We're going to leverage the recent paper on Reasoning from Deepseq.
+
+291
+00:40:16.030 --> 00:40:25.979
+Dr. Greg: We're going to load it. We're going to chunk it. We're going to embed it. We're going to store it. We're going to do it just the way that we did it with the Pythonic rag setup. So we're going to take our app stack.
+
+292
+00:40:26.260 --> 00:40:31.689
+Dr. Greg: We're gonna take this standard setup from our challenge.
+
+293
+00:40:31.970 --> 00:40:38.590
+Dr. Greg: We're going to integrate the Pythonic rag. And then we're going to have a new application that we can chat with.
+
+294
+00:40:40.280 --> 00:40:43.370
+Dr. Greg: The app stack looks like this.
+
+295
+00:40:43.700 --> 00:40:49.360
+Dr. Greg: Wiz has created a custom diagram shows you exactly what's going on that looks like this.
+
+296
+00:40:49.510 --> 00:40:52.359
+Dr. Greg: And he's gonna walk us through exactly what's going on
+
+297
+00:40:52.480 --> 00:40:56.430
+Dr. Greg: end to end when we build a prototype
+
+298
+00:40:56.640 --> 00:40:59.146
+Dr. Greg: just like this one whiz over to you.
+
+299
+00:41:00.300 --> 00:41:03.610
+Chris "The Wiz" Alexiuk: Oh, yeah, okay, so we're gonna start.
+
+300
+00:41:04.610 --> 00:41:09.390
+Chris "The Wiz" Alexiuk: as we usually do with the actual
+
+301
+00:41:09.820 --> 00:41:25.599
+Chris "The Wiz" Alexiuk: assignment. So this is the assignment. You're going to see that there's this big note, and there's only one thing that you need to do from the actual assignment page in the Github Repository, and that is to
+
+302
+00:41:26.350 --> 00:41:40.650
+Chris "The Wiz" Alexiuk: CD. To not the current Github Repository, and then clone this new repo. This is extremely, extremely, extremely, extremely important.
+
+303
+00:41:40.650 --> 00:42:10.500
+Chris "The Wiz" Alexiuk: Please make sure that you do not do this in your current repository you will have a headache that will need to be resolved by us, and then we will also have everyone's going to get headaches. So the big thing is, if you just copy and paste this, it's going to automatically take care of that for you. But if not, just make sure you're not creating like a sub repository. Get will let you do this, and it's perfectly manageable, but it will complicate things for your future. So just do that, and it'll be great.
+
+304
+00:42:10.660 --> 00:42:18.430
+Chris "The Wiz" Alexiuk: This new repository is basically a redux of the challenge, except it's going to be a little bit
+
+305
+00:42:18.880 --> 00:42:32.349
+Chris "The Wiz" Alexiuk: a little bit different, because we're going to use python. So instead of just using open AI, we're always using python. But the pythonic implementation of rag as opposed to just wrapping the Chat Gpt Endpoint.
+
+306
+00:42:32.350 --> 00:42:57.300
+Chris "The Wiz" Alexiuk: So there's a couple of things that we want to think about or consider. Number one. You'll notice that we have this. Read me this, read me, has this strange blob at the top. If you look at it in your editor, you're going to see this. We have to have that. Please leave that. Please do not change it. You can change the values in here all you'd like, except for this one and
+
+307
+00:42:57.300 --> 00:43:05.039
+Chris "The Wiz" Alexiuk: other than that you can change things how you would, how you would like. But if you don't have this, the huggy face will not work, and that will be sad.
+
+308
+00:43:05.500 --> 00:43:14.949
+Chris "The Wiz" Alexiuk: Next we have. If you want to run this locally, we are using UV. So someone was mentioning earlier about this idea that like, Hey, we actually don't have.
+
+309
+00:43:14.950 --> 00:43:39.939
+Chris "The Wiz" Alexiuk: You know we don't have a, you know package set up to make things nice and clean. We have that with UV. So the piproject Toml is going to have exactly the dependencies pinned to exactly the versions they should be pinned to, as well as what version of Python you have. All of this is handled through UV in order to get started with this
+
+310
+00:43:39.940 --> 00:43:42.649
+Chris "The Wiz" Alexiuk: you have to do is run UV sync.
+
+311
+00:43:42.660 --> 00:44:04.989
+Chris "The Wiz" Alexiuk: and then you can run UV run, and then whatever you'd like to run. In this case. Chain lit, run apppy. That's going to be a local instance of chainlit. So this is not going to be something that I'm going to recommend that you do just use Docker. But if you really want to run it without docker, this is how you do that. Uvsync is basically just saying, Hey.
+
+312
+00:44:04.990 --> 00:44:15.469
+Chris "The Wiz" Alexiuk: collect all this stuff into dot, you know.vn, so we can use it for later. Then we have this diagram. This diagram has like a ton of stuff going on, but it's not
+
+313
+00:44:15.470 --> 00:44:37.620
+Chris "The Wiz" Alexiuk: as complicated as it as it might look, due to the amount of lines that that appear. So 1st of all, we have some stuff that is on Openai's side of the aisle. Then we have some stuff that's on our users, you know, side of the aisle, and then we have our application. Our application is going to be hosted on a hugging face space
+
+314
+00:44:37.750 --> 00:44:42.220
+Chris "The Wiz" Alexiuk: that space is going to have some secrets and secrets and environment variables.
+
+315
+00:44:42.540 --> 00:44:46.980
+Chris "The Wiz" Alexiuk: The huggy face space will launch or run a docker container
+
+316
+00:44:47.130 --> 00:45:02.629
+Chris "The Wiz" Alexiuk: which is going to propagate these secrets. So now our secrets are in this docker container, and then the docker container is what's running. The chainlit instance chain lit is technically split between a back end and a front end. There you go, classic web stuff.
+
+317
+00:45:02.870 --> 00:45:30.819
+Chris "The Wiz" Alexiuk: All of this is just showing you what happens whenever stuff moves through the application. So when we 1st create our app we go to on chat start and we ask for a file. The user's input is required to progress to the next step. Once we do, we process that text file. Then we're going to build the vector database from a list of text chunks which we saw last week with the pythonic rag. This is going to leverage text embedding 3 small.
+
+318
+00:45:30.820 --> 00:45:35.969
+Chris "The Wiz" Alexiuk: Then we're going to use our retrieval, augmented pipeline which you're going to see in a second.
+
+319
+00:45:35.970 --> 00:46:00.129
+Chris "The Wiz" Alexiuk: Then we wait. We just chill. We just chill here. We do nothing. We just chill here waiting for input. If we get text, input, we're going to receive a message. So the on message section of our application will trigger. This is going to run our pipeline, which is going to involve accessing both Gbt. 4 0. Mini and text embedding 3 small. And then we're going to stream the response straight back to the text box which is going to be pushed
+
+320
+00:46:00.130 --> 00:46:09.699
+Chris "The Wiz" Alexiuk: forward to the user. So that's all that's happening here. A lot of boxes, a lot of lines, but very straightforward flow. It's going to look even simpler. Once we're in the application.
+
+321
+00:46:09.810 --> 00:46:33.879
+Chris "The Wiz" Alexiuk: We have the full instructions on how to build the Channel application. If, in case you want to build your own as well as a few questions. You know, why? Why do we care about streaming is a question, why do we care about user session is a question. And then, finally, we're going to play around with this app on the new deep. Seek r. 1 paper and ask some questions, and then we're going to determine. Hey, is this rag application. Passenger Vibe. Check
+
+322
+00:46:33.950 --> 00:47:01.000
+Chris "The Wiz" Alexiuk: right or not. You'll also notice at the bottom of this assignment that we have this challenge mode which is to recreate chainlet or whatever version you want, basically recreate the ability to chat with the rag pipeline, using fastapi and either react or whatever Js framework you consider your favorite at the moment. This is. This is how these kinds of challenge modes are going to look
+
+323
+00:47:01.000 --> 00:47:24.119
+Chris "The Wiz" Alexiuk: through the cohort. There's no real guidance here. It's just a task. It's up to you to figure out how you want to accomplish this task, what tools you want to use, how you're going to achieve the goal. It is definitely possible. But it's totally up to you how you navigate that. So this is why it is a challenge and not just another part of the code assignment. Okay?
+
+324
+00:47:24.420 --> 00:47:25.490
+Chris "The Wiz" Alexiuk: So
+
+325
+00:47:25.770 --> 00:47:39.739
+Chris "The Wiz" Alexiuk: in order to make this all happen which we have working here just to just to show you the the final product right where we can upload our text or Pdf file to begin. Once we do, we can ask questions. That's great. We can ask
+
+326
+00:47:39.740 --> 00:47:54.629
+Chris "The Wiz" Alexiuk: complex questions like, what is the difference between Deepseq, r. 1 and Deepseq, R. 1 0, which we get a great answer for. Leave this up to you guys in your breakout rooms. We could also ask really advanced questions, like, What what is this paper about.
+
+327
+00:47:54.630 --> 00:48:19.410
+Chris "The Wiz" Alexiuk: you know? Which is a extremely complex question. I'm sure it's going to be difficult. Oh, Whoa! What's this? Right? So this is the this is something that's worth discussing in your breakout rooms is why you think that something like this is not answerable, but something that looks certainly technically more complex is quite, quite answerable. But this is this is running on huggy face right now.
+
+328
+00:48:19.420 --> 00:48:49.260
+Chris "The Wiz" Alexiuk: Right? So we saw, we can set it a query. And all that we're doing is we're creating this apppy right? So I'm not going to go through the process of showing you exactly how you copy all the files over into your local. That's something that you've already done in the challenge. So we're not going to belabor the point here, but I am going to walk you through the actual appy implementation. So we're going to look at it in Github because it hurts my eyes less. And we're going to see
+
+329
+00:48:49.260 --> 00:49:05.990
+Chris "The Wiz" Alexiuk: what this is trying to do. 1st of all, we have a big wall of imports. We have some important ones like, you know, stuff from chainlit. Our AI makerspace rag implementation. We also have some fun python ones, which is just basically typing in OS.
+
+330
+00:49:05.990 --> 00:49:32.450
+Chris "The Wiz" Alexiuk: We have exactly from the notebook last week a system template and user prompt template. This is the same ones that we saw. There you go, and then we have our retrieval augmented Qa. Pipeline, which we saw at the end of the notebook last week. Basically, all this is going to do is that it's going to be initialized with some Llm and some vector database retriever. And then it is going to be.
+
+331
+00:49:32.450 --> 00:49:41.659
+Chris "The Wiz" Alexiuk: have the method, a run pipeline, which is going to take some query. And then it's going to do rag with the query, right? It's going to build a context list from the query
+
+332
+00:49:41.750 --> 00:50:00.599
+Chris "The Wiz" Alexiuk: specifically, for you know, top K documents. Then, of course, we're going to shove that into a new line separated string. We're going to format that into our prompt. And then we're going to use this fun, little Async, def generate response Async, for chunk in the stream.
+
+333
+00:50:00.600 --> 00:50:26.939
+Chris "The Wiz" Alexiuk: Yield, Chunk. So if you if you know python, you're probably like nice, I know what's happening. If you don't. Basically, this is a generator, what's going to happen is that we're going to be able to pull this generator. And every time it's updated, we're going to get the next response. So you'll notice in our return, we actually return the generator as the response. So we have to make sure that when we build logic to consume the response.
+
+334
+00:50:26.940 --> 00:50:35.269
+Chris "The Wiz" Alexiuk: we understand that this is a generator. All that a generator does is basically say you can call next on it.
+
+335
+00:50:35.270 --> 00:51:03.649
+Chris "The Wiz" Alexiuk: right? And you're going to get the next bit of response. This is the streaming response that we're talking about, which I'll leave to you guys to figure out why it's important to have streaming in the 1st place in the breakout rooms. We have our text splitter easy, peasy. Okay? Then we have this process file function. This is going to unsurprisingly process a file. We're going to process both text files and Pdf files. So we ensure that we have that set up.
+
+336
+00:51:03.650 --> 00:51:13.470
+Chris "The Wiz" Alexiuk: And then we have this fun little notation here. Right? So so far, this is just kind of regular old python. Nothing nothing crazy is happening here. Then we have this
+
+337
+00:51:13.470 --> 00:51:34.500
+Chris "The Wiz" Alexiuk: at Cl on Chat. Start for those of you who understand all of what I've been talking about so far. That's great. I hope you're enjoying the re-exploration of these concepts for those of you who don't. This is called a decorator. All it does is it decorates the function. We can think of a decorator as something like a function that wraps another function.
+
+338
+00:51:34.500 --> 00:51:59.410
+Chris "The Wiz" Alexiuk: And the reason decorators are so handy is that they have some kind of you know implementation that does a lot of fun things for us. So instead of having to interact with the front end or send messages or send events and listen for events. And all this other stuff we just wrap with on chat start. And what this is going to, I mean, the English works. Very well.
+
+339
+00:51:59.410 --> 00:52:20.100
+Chris "The Wiz" Alexiuk: right. This is going to run this function when the chat starts, or on the start of the chat. Right there you go. So that's the power of decorators is that they help us do. It's a very useful pattern. You're going to see this if you try the challenge mode with fastapi, which also uses decorators to great effect.
+
+340
+00:52:20.386 --> 00:52:29.839
+Chris "The Wiz" Alexiuk: On chat start, what are we going to do? Well, we're gonna start with no files. And then, while files are are none. While there's no files. We're just gonna sit there waiting
+
+341
+00:52:30.050 --> 00:52:54.799
+Chris "The Wiz" Alexiuk: every 180 seconds. We're going to say, Hey, give us a file right over and over again until we get the file. Once we have the file we're going to go ahead, and this while Loop will no longer be, you know, this will no longer resolve to. True, it's going to be false, so we'll carry on. We'll extract the actual contents of our file. We'll send a message. So people know what we're doing, which is we're processing the file.
+
+342
+00:52:54.800 --> 00:53:16.089
+Chris "The Wiz" Alexiuk: Then we're going to use process file. We're going to say how many chunks. We're processing. We're going to build our vector database with those chunks. And then we're going to set up our Llm, we're going to set up our retrieval augmented Qa pipeline, which, remember, takes that vector dB, retriever and an Llm. And then we're going to say, Hey, we're done. You can start asking questions. And then we're going to set
+
+343
+00:53:16.230 --> 00:53:36.589
+Chris "The Wiz" Alexiuk: the user session chain variable to the constructed retrieval augmented. Qa pipeline. This is user sessions, right? Which is very straightforward. It's just things that are specific to this user's session. Right? So, for instance, right now.
+
+344
+00:53:36.850 --> 00:54:02.299
+Chris "The Wiz" Alexiuk: if I go back to our application, and I and I, you know, want to upload this deep, seek r, 1 Pdf, to process so we can ask questions. There we go. I can say, you know what is. What is. Rl, we get some kind of answer. That's great, right. But if I want to go ahead and open this in a new window right here, you'll notice I don't see any of that stuff right? Because I'm in a new session now.
+
+345
+00:54:02.300 --> 00:54:09.849
+Chris "The Wiz" Alexiuk: So this is the kind of reason we care about user sessions. Right? We want each user to have their own
+
+346
+00:54:10.150 --> 00:54:13.900
+Chris "The Wiz" Alexiuk: unique interaction with our application. Okay.
+
+347
+00:54:14.030 --> 00:54:40.970
+Chris "The Wiz" Alexiuk: then, we have on message, you know, just you can imagine this is going to occur when we get a message or on a message, right? So this is going to happen. Whenever I send a message, I'm going to send it this one, because it's not going to definitely fail. Right? So we say things like, you know, what is sft. It might not know this. Oh, it knew it. Great job. So on. Message was triggered. Once I hit enter on that message perfect. Okay.
+
+348
+00:54:41.390 --> 00:55:04.840
+Chris "The Wiz" Alexiuk: And what is it going to do? Well, all it's going to do is it's going to grab our chain, which, remember, is our retrieval augmented Qa. Pipeline from the user session. So it's going to get it. It was stored here. It was picked up over here, and then it's going to just await that chain, a run, pipeline, to give us this result. Object. All this is cool. It's.
+
+349
+00:55:04.890 --> 00:55:34.369
+Chris "The Wiz" Alexiuk: you know, it's using Async pattern, right? Which is which is handy because it's fast. And again, that's up to you guys to talk about in the in the breakout rooms a little bit, and then we get this result, which we know is going to have a generator in the response field, and then we can just sit there waiting for new tokens with the Stream token method. There you go, and then we can send the final message back, you might ask yourself, Well, why do we need to do this user set stuff right?
+
+350
+00:55:34.370 --> 00:55:49.840
+Chris "The Wiz" Alexiuk: And this is basically because if we don't, Python will have forgotten that we set this variable up right. We did all this work here. It will have forgotten it whenever we call it with a message, because this is only valid in the scope of this function.
+
+351
+00:55:49.940 --> 00:56:10.330
+Chris "The Wiz" Alexiuk: That's the whole thing, guys. It's not that crazy. And again, I hope you've enjoyed for some of you a trip down Memory Lane for others who are just getting into this stuff. These are patterns that we're going to see constantly throughout the next few weeks together, and once you get into, you know.
+
+352
+00:56:10.440 --> 00:56:23.770
+Chris "The Wiz" Alexiuk: you know, working on this in an AI engineering role, this is all you're going to deal with all the time. But this is your your brief introduction. With that we're gonna go ahead and pass you back to Greg, who will get us into our breakout rooms.
+
+353
+00:56:23.770 --> 00:56:32.430
+Dr. Greg: Awesome. Thanks, wiz! Hey? One quick question, wiz! Is this production ready?
+
+354
+00:56:33.150 --> 00:56:58.620
+Chris "The Wiz" Alexiuk: It sure isn't. This is a prototype. Yes, our little Python library is not, you know, designed for scale. Remember, it's using a vector. Database. That's just a python dictionary. So if we have even a thousand vectors, we're going to start to see some slowdowns, but it is working, and it is prototyped.
+
+355
+00:56:58.620 --> 00:56:59.040
+Dr. Greg: Right.
+
+356
+00:56:59.040 --> 00:57:18.220
+Chris "The Wiz" Alexiuk: Hands on it. More importantly, your users can vibe check it? To answer Hugh's question, really quick. This is the latest chainlit code. The way we set up the UV environment is to circumvent the web socket. Issue big, thanks to Mike Dean for troubleshooting that for us and getting it in there! So there you go!
+
+357
+00:57:18.220 --> 00:57:42.669
+Dr. Greg: Yes, yes, awesome. So yeah, we will cover more on what production ready means as we talk about scale. But hey, I mean, come on, how many users do you really have? Come on? You know it's like you can probably get this thing working for a couple of people and see if it passes the vibe check on the people that do it today. Now we're gonna go to breakout rooms, for those of you that are engaged want to do this are in it.
+
+358
+00:57:43.060 --> 00:57:49.100
+Dr. Greg: Heck! Yeah, that's what we're talking about, if you're like, oh, my God! I still don't have
+
+359
+00:57:49.740 --> 00:57:54.380
+Dr. Greg: my basic setup ready, and I would rather work on that
+
+360
+00:57:54.790 --> 00:58:11.240
+Dr. Greg: Todd Llm. Is available. Duke is available. They are in. Come here for one on one support. You can jump in or let your peer supporter know we're here to help you out. Meet you where you are advanced folks get after it. Go advance. We got 25 min. We'll see you back to close out session. 3. Enjoy the time together, guys
+
+361
+00:58:12.300 --> 00:58:16.440
+Dr. Greg: pythonic rag in chain. Let's go
+
+362
+00:58:22.020 --> 00:58:25.689
+Dr. Greg: now that we're back from breakout rooms. It's time to wrap.
+
+363
+00:58:26.730 --> 00:58:30.630
+Dr. Greg: This was session 3. This was end to end
+
+364
+00:58:30.790 --> 00:58:35.539
+Dr. Greg: brag. This was sort of bringing everything we've learned together together.
+
+365
+00:58:35.830 --> 00:58:41.780
+Dr. Greg: and hopefully aligning us in a really positive way towards the future. Now
+
+366
+00:58:41.960 --> 00:58:59.369
+Dr. Greg: we saw that in industry, you know, we're searching. We're researching. We're writing reports. We're filling out forms. This is sort of the state of the art. We're going to take the data that you guys gave us about use cases. We're going to share it in discord. Tag. You guys hopefully make some collisions, some connections there.
+
+367
+00:58:59.670 --> 00:59:08.330
+Dr. Greg: Don't forget Demo Day is going to be the talk of your life. Ped talk level status. We're going to keep pushing this.
+
+368
+00:59:08.510 --> 00:59:22.920
+Dr. Greg: And we're going to keep getting you guys prepared for a high level of production value. Maybe you're not truly acting. Maybe it's not fully embodied. We are virtual, after all, but we are going to try to take it really seriously.
+
+369
+00:59:23.570 --> 00:59:43.599
+Dr. Greg: Now, end to end is something we'll continue to talk about production grade is something we'll continue to talk about. This is a stack we saw today, and that we've seen so far that you can pick up, and you can just quick prototype stuff, and you can get people using it. You can ship it into people's hands. You can get feedback from your users. There's nothing stopping you
+
+370
+00:59:44.140 --> 00:59:51.790
+Dr. Greg: today from shipping a rag application on Monday to people at your company or to people in your communities.
+
+371
+00:59:52.310 --> 01:00:03.019
+Dr. Greg: That's where we wanted to get you by session. 3. Now, do you understand? Every single aspect? Probably not. Are we going to go deeper for the next 9 weeks? Yes, we are.
+
+372
+01:00:03.390 --> 01:00:05.630
+Dr. Greg: On Thursday we cover lang chain.
+
+373
+01:00:06.360 --> 01:00:11.390
+Dr. Greg: We talk about exactly how to implement it today, based on the latest and greatest.
+
+374
+01:00:11.850 --> 01:00:26.900
+Dr. Greg: Actually, we're going to leverage laying graph, not laying chain. We'll talk about the deets on Thursday, and and don't forget as you're thinking about teams. Do think about pairing yourself with somebody who complements you like the whiz and I, we don't have the same skill set.
+
+375
+01:00:27.070 --> 01:00:41.390
+Dr. Greg: If you can find somebody similar in this cohort that you can really really jive with and Vibe with. That's going to be a winning combination rather than a bunch of you know, Steve Wozniaks up on stage, although we love you guys, too. That's how it turns out.
+
+376
+01:00:41.610 --> 01:00:46.000
+Dr. Greg: Okay, that's it for session. 3. 1 more thing.
+
+377
+01:00:46.230 --> 01:00:58.860
+Dr. Greg: Please. Please let us know what you thought about today. Let us know how we can improve for future cohorts. We're always working on trying to take this to the next level. Improve the processes, improve your experience. Let us know what you thought.
+
+378
+01:00:59.290 --> 01:01:01.469
+Dr. Greg: and 2 min on the clock.
+
+379
+01:01:01.820 --> 01:01:03.800
+Dr. Greg: We'll close it out right after feedback.
+
+380
+01:01:06.540 --> 01:01:26.939
+Dr. Greg: Thank you. Everybody for providing feedback on today. Thanks for the great discussions going on in the chat. I love these whiz! We'll talk more about lang chain versus is lang chain dead, is it? Long live lang chain! I think we're getting some great questions in the chat. Keep them coming in cohort questions. If you guys have them throughout
+
+381
+01:01:27.110 --> 01:01:32.690
+Dr. Greg: the week, if you have them over the weekend. We're always here trying to get you up to speed
+
+382
+01:01:33.040 --> 01:01:36.260
+Dr. Greg: in terms of what is the latest from the Llm. Edge.
+
+383
+01:01:36.570 --> 01:01:58.359
+Dr. Greg: Tomorrow you can join us to talk agent evaluation. Get out ahead of that a little bit for the cohort. We'll do it with Ragus. We're live on Youtube on Thursday. We'll talk lang chain with lang graph. We'll talk about the constructs. You need to know. We'll talk about how to take something like we built today and make it really production ready and production grade we hope you enjoyed today? We certainly did.
+
+384
+01:01:59.240 --> 01:02:28.089
+Dr. Greg: This is really the hard class to get over the hump. If you thought everything was easy. We got more advanced stuff coming. If you thought all of this was just way too much. This is the stuff that doesn't really change from here. So you just need to keep working on it. Just need to keep putting in time to get a handle on it. You will get up to speed, especially as you start submitting those homeworks. Keep building, shipping, and sharing everybody. Keep tagging at AI maker space. We'll see on Thursday lang chain session. 4.
+
+385
+01:02:28.380 --> 01:02:35.639
+Dr. Greg: Thanks for joining us for session 3. And to end rag. See, you guys soon have a fantastic evening and have an awesome week. Everybody
+
+386
+01:02:36.750 --> 01:02:37.880
+Dr. Greg: bye, guys.
+
+387
+01:02:39.690 --> 01:02:43.430
+Seraacha: Bye, everyone see you. Thursday.
+
+388
+01:02:44.740 --> 01:02:46.530
+Dr. Greg: Bye, y'all, later.
+
+389
+01:02:47.440 --> 01:02:48.380
+Seraacha: Bye.
+
+390
+01:02:48.380 --> 01:02:50.999
+Dr. Greg: Much load. Let's go.
+
