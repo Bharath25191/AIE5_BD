@@ -1,0 +1,85 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36" version="26.0.8">
+  <diagram name="Page-1" id="_hn1Bz0pmeAadHHBepP8">
+    <mxGraphModel dx="954" dy="605" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="EW0_gUJJJhzNM4SnUrqr-16" target="EW0_gUJJJhzNM4SnUrqr-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="EW0_gUJJJhzNM4SnUrqr-16" target="EW0_gUJJJhzNM4SnUrqr-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="EW0_gUJJJhzNM4SnUrqr-16" target="EW0_gUJJJhzNM4SnUrqr-34">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-16" value="Supervisor" style="rhombus;strokeWidth=2;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="307" y="437" width="113" height="113" as="geometry" />
+        </mxCell>
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="EW0_gUJJJhzNM4SnUrqr-17" target="EW0_gUJJJhzNM4SnUrqr-16">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="140" y="617" />
+              <mxPoint x="140" y="417" />
+              <mxPoint x="364" y="417" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-17" value="Search" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="210" y="590" width="101" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="EW0_gUJJJhzNM4SnUrqr-18" target="EW0_gUJJJhzNM4SnUrqr-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-18" value="RAG" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="470" y="590" width="101" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-19" value="1. Uses Tavily to Perform Search Action" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="150" y="535" width="119" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-20" value="3. Uses RAG Pipeline for Retrieval" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="400" y="550" width="119" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-21" value="Agent" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="306" y="495" width="119" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-27" value="2. Returns the Search Results to the Agent" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="170" y="380" width="119" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-30" value="4. Returns Retrieved Results back to the agent" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="480" y="370" width="119" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-31" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="376.5" y="440" as="sourcePoint" />
+            <mxPoint x="440" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-32" value="Text" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="190" y="460" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-33" value="Agents here represents the entire pipeline of Chat Template, LLM Model for agent, completion" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="430.75" y="280" width="179.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-34" value="END" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="328.5" y="590" width="70" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-36" value="Sub Agents" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="350" y="720" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-37" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.25;exitDx=0;exitDy=0;" edge="1" parent="1" source="EW0_gUJJJhzNM4SnUrqr-36">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="290" y="750" as="sourcePoint" />
+            <mxPoint x="270" y="650" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-38" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;exitX=1;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="EW0_gUJJJhzNM4SnUrqr-36">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="560.5" y="728" as="sourcePoint" />
+            <mxPoint x="480.5" y="650" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
