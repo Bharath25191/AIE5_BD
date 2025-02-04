@@ -1,56 +1,68 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36" version="26.0.8">
   <diagram name="Page-1" id="_hn1Bz0pmeAadHHBepP8">
-    <mxGraphModel>
+    <mxGraphModel dx="954" dy="605" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="2" value="Start" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
-          <mxGeometry x="8" y="60" width="95" height="54" as="geometry" />
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="EW0_gUJJJhzNM4SnUrqr-16" target="EW0_gUJJJhzNM4SnUrqr-17">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="3" value="Decision" style="rhombus;strokeWidth=2;whiteSpace=wrap;" vertex="1" parent="1">
-          <mxGeometry x="153" y="30" width="113" height="113" as="geometry" />
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="EW0_gUJJJhzNM4SnUrqr-16" target="EW0_gUJJJhzNM4SnUrqr-18">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="4" value="Result 1" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
-          <mxGeometry x="343" y="8" width="117" height="54" as="geometry" />
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="EW0_gUJJJhzNM4SnUrqr-16" target="EW0_gUJJJhzNM4SnUrqr-34">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="5" value="Result 2" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
-          <mxGeometry x="343" y="112" width="117" height="54" as="geometry" />
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-16" value="Supervisor" style="rhombus;strokeWidth=2;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="307" y="437" width="113" height="113" as="geometry" />
         </mxCell>
-        <mxCell id="6" value="End" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
-          <mxGeometry x="510" y="60" width="86" height="54" as="geometry" />
-        </mxCell>
-        <mxCell id="7" value="" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="2" target="3">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="8" value="Yes" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.23;entryX=0;entryY=0.5;" edge="1" parent="1" source="3" target="4">
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="EW0_gUJJJhzNM4SnUrqr-17" target="EW0_gUJJJhzNM4SnUrqr-16">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="305" y="35" />
+              <mxPoint x="140" y="617" />
+              <mxPoint x="140" y="417" />
+              <mxPoint x="364" y="417" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="9" value="No" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.78;entryX=0;entryY=0.5;" edge="1" parent="1" source="3" target="5">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="305" y="139" />
-            </Array>
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-17" value="Search" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="210" y="590" width="101" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="EW0_gUJJJhzNM4SnUrqr-18" target="EW0_gUJJJhzNM4SnUrqr-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-18" value="RAG" style="whiteSpace=wrap;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="470" y="590" width="101" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-19" value="1. Uses Tavily to Perform Search Action" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="150" y="535" width="119" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-20" value="3. Uses RAG Pipeline for Retrieval" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="400" y="550" width="119" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-21" value="Agent" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="306" y="495" width="119" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-27" value="2. Returns the Search Results to the Agent" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="170" y="380" width="119" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-30" value="4. Returns Retrieved Results back to the agent" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="480" y="370" width="119" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-31" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="376.5" y="440" as="sourcePoint" />
+            <mxPoint x="480" y="270" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="10" value="" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.5;entryX=0.09;entryY=0;" edge="1" parent="1" source="4" target="6">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="485" y="35" />
-            </Array>
-          </mxGeometry>
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-32" value="Text" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="190" y="460" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="11" value="" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.5;entryX=0.09;entryY=1;" edge="1" parent="1" source="5" target="6">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="485" y="139" />
-            </Array>
-          </mxGeometry>
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-33" value="Agents here represents the entire pipeline of Chat Template, LLM Model for agent, completion" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="490.5" y="230" width="179.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EW0_gUJJJhzNM4SnUrqr-34" value="END" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="328.5" y="590" width="70" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
